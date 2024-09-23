@@ -5,22 +5,23 @@ import React from 'react';
 import { sidebarLinks } from '../../constants';
 import { cn } from '../../lib/utils';
 import { usePathname } from 'next/navigation';
+import Footer from './Footer';
 
 const SideBar = ({ user }: SiderbarProps) => {
   const pathname = usePathname();
   return (
     <section className="sidebar">
       <nav className="flex flex-col gap-4">
-          <Link href="/" className="mb-12 cursor-pointer items-center gap-2 flex">
-            <Image
-              src="/icons/logo.svg"
-              width={34}
-              height={34}
-              alt="Horizon logo"
-              className="max-xl:size-14"
-            />
-            <h1 className="sidebar-logo">Horizon</h1>
-          </Link>
+        <Link href="/" className="mb-12 cursor-pointer items-center gap-2 flex">
+          <Image
+            src="/icons/logo.svg"
+            width={34}
+            height={34}
+            alt="Horizon logo"
+            className="max-xl:size-14"
+          />
+          <h1 className="sidebar-logo">Horizon</h1>
+        </Link>
         {sidebarLinks.map((item) => {
           const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`);
           return (
@@ -40,10 +41,12 @@ const SideBar = ({ user }: SiderbarProps) => {
               <p className={cn('sidebar-label', { '!text-white': isActive })}> {item.label}</p>
             </Link>
           );
-          })}
+        })}
         USER
       </nav>
-      FOOTER
+      <footer className="footer">
+        <Footer user={user} />
+      </footer>
     </section>
   );
 };

@@ -32,21 +32,19 @@ const AuthForm = ({ type }: { type: string }) => {
     setIsLoading(true);
 
     try {
-      // sign up with appwrite
-      //
-
-      if (type === 'sign-up') {
+      if (type === 'sign-up') { 
         const newUser = await signUp(data);
         setUser(newUser);
       }
 
-      // if (type === 'sign-in') {
-      //   const response = await signIn({
-      //     email: data.email,
-      //     password: data.password,
-      //   });
-      //   if (response) router.push('/');
-      // }
+      if (type === 'sign-in') {
+        const response = await signIn({
+          email: data.email,
+          password: data.password,
+        });
+        console.log("response: ", response)
+        if (response) router.push('/');
+      }
     } catch (error) {
       console.log('error:', error);
     } finally {

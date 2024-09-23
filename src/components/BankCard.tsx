@@ -8,7 +8,7 @@ const BankCard = ({ account, userName, showBalance = true }: CreditCardProps) =>
     <div className="flex flex-col">
       <Link href="/" className="bank-card">
         <div className="bank-card_content">
-          <div>
+        <div>
             <h1 className="text-16 font-semibold text-white">{account.name || userName}</h1>
             <p className="font-ibm-plex-serif font-black text-white">
               {formatAmount(account.currentBalance)}
@@ -36,7 +36,7 @@ const BankCard = ({ account, userName, showBalance = true }: CreditCardProps) =>
           />
         </div>
         <Image
-          src="/icons/lines.png"
+          src="/icons/lines.png" 
           width={9016}
           height={190}
           alt="lines"
